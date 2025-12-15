@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appliances Repair Yang | Fast & Reliable Application Repair in Florida</title>
+    <meta name="description"
+        content="Expert appliance repair service in Florida. We fix washers, dryers, refrigerators, ovens, and more. Same-day service available. Call now!">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Flatpickr (Better Date Picker) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="assets/logo.png" alt="Appliances Repair Yang Logo">
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#book-now" class="nav-link">Book Now</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </nav>
+
+            <div class="header-actions">
+                <a href="tel:+17542757642" class="phone-link">
+                    <span class="phone-label">Call Us Now</span>
+                    <span class="phone-number">(754) 275-7642</span>
+                </a>
+                <a href="#book-now" class="btn btn-primary nav-btn">Book Service</a>
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <!-- Video Background with Two Videos -->
+            <video id="heroVideo1" class="hero-video active" autoplay muted playsinline>
+                <source src="assets/Hero1.mp4" type="video/mp4">
+            </video>
+            <video id="heroVideo2" class="hero-video" autoplay muted playsinline>
+                <source src="assets/Hero2.mp4" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Fast & Reliable Appliance Repair in Florida</h1>
+            <p class="hero-subtitle">Same-day service for washers, dryers, refrigerators, ovens & more. We bring your
+                appliances back to life.</p>
+            <div class="hero-buttons">
+                <a href="#book-now" class="btn btn-primary btn-lg"><i class="fas fa-calendar-check"></i> Schedule
+                    Now</a>
+                <a href="tel:+17542757642" class="btn btn-secondary btn-lg"><i class="fas fa-phone-alt"></i> Call
+                    Now</a>
+            </div>
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <i class="fas fa-bolt"></i> Same-Day Service
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-shield-alt"></i> 3-Month Warranty
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-tools"></i> All Major Brands
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <span class="section-subtitle">What We Do</span>
+                <h2 class="section-title">Expert Repair Services</h2>
+                <p class="section-desc">Professional repair solutions for all major home appliances and brands.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service Card 1 -->
+                <article class="service-card reveal-scale">
+                    <div class="service-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="service-title">Washer Repair</h3>
+                    <p class="service-desc">Leaking? Not spinning? We fix all washer issues regardless of brand or
+                        model.</p>
+                    <a href="#book-now" class="service-link">Schedule Now <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <!-- Service Card 2 -->
+                <article class="service-card reveal-scale">
+                    <div class="service-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 class="service-title">Dryer Repair</h3>
+                    <p class="service-desc">Clothes not drying? Strange noises? We'll get your dryer running efficiently
+                        safely.</p>
+                    <a href="#book-now" class="service-link">Schedule Now <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <!-- Service Card 3 -->
+                <article class="service-card reveal-scale">
+                    <div class="service-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3 class="service-title">Refrigerator Repair</h3>
+                    <p class="service-desc">Not cooling? Ice maker broken? Urgent repair to save your food and money.
+                    </p>
+                    <a href="#book-now" class="service-link">Schedule Now <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <!-- Service Card 4 -->
+                <article class="service-card reveal-scale">
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="service-title">Oven & Stove Repair</h3>
+                    <p class="service-desc">Burner not lighting? Temperature issues? Cook safely again with our help.
+                    </p>
+                    <a href="#book-now" class="service-link">Schedule Now <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <!-- Service Card 5 -->
+                <article class="service-card reveal-scale">
+                    <div class="service-icon">
+                        <i class="fas fa-sink"></i>
+                    </div>
+                    <h3 class="service-title">Dishwasher Repair</h3>
+                    <p class="service-desc">Dishes looking dirty? Leaks? We restore your dishwasher's cleaning power.
+                    </p>
+                    <a href="#book-now" class="service-link">Schedule Now <i class="fas fa-arrow-right"></i></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us section">
+        <div class="container">
+            <div class="why-us-grid">
+                <div class="why-us-content reveal-left">
+                    <span class="section-subtitle">Why Choose Us</span>
+                    <h2 class="section-title">Reliable Service You Can Trust</h2>
+                    <p class="section-desc">We understand the inconvenience of a broken appliance. That's why we
+                        prioritize speed, quality, and transparency in every job we do.</p>
+
+                    <ul class="why-list">
+                        <li class="why-item">
+                            <div class="why-icon"><i class="fas fa-user-shield"></i></div>
+                            <div>
+                                <h4>Experienced Technicians</h4>
+                                <p>Our team is fully trained and experienced with all major brands.</p>
+                            </div>
+                        </li>
+                        <li class="why-item">
+                            <div class="why-icon"><i class="fas fa-bolt"></i></div>
+                            <div>
+                                <h4>Fast Response</h4>
+                                <p>We offer prompt scheduling and same-day service options.</p>
+                            </div>
+                        </li>
+                        <li class="why-item">
+                            <div class="why-icon"><i class="fas fa-tag"></i></div>
+                            <div>
+                                <h4>Honest Pricing</h4>
+                                <p>No hidden fees. You'll know the cost before we start the repair.</p>
+                            </div>
+                        </li>
+                        <li class="why-item">
+                            <div class="why-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4>Local Florida Service</h4>
+                                <p>Proudly serving our local Florida community with dedication.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="why-us-visual reveal-right">
+                    <!-- Decorate with CSS or patterns -->
+                    <div class="stat-card">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Repairs Done</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking section" id="book-now">
+        <div class="container">
+            <div class="booking-wrapper">
+                <div class="booking-header text-center">
+                    <h2 class="section-title text-white">Schedule Your Repair</h2>
+                    <p class="text-white-opacity">Fill out the form below and we'll get back to you shortly to confirm
+                        your appointment.</p>
+                </div>
+
+                <form class="booking-form" id="bookingForm">
+                    <!-- Section: Personal Info -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Personal Information</span>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName">Name <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="optional">(Optional)</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="email" name="email" placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone2">Alternate Phone <span class="optional">(Optional)</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <input type="tel" id="phone2" name="phone2" placeholder="(555) 987-6543">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section: Location -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Service Location</span>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="address">Service Address <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-home"></i>
+                                    <input type="text" id="address" name="address" placeholder="123 Main St, City"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="apartment">Apt / Unit # <span class="optional">(Optional)</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-building"></i>
+                                    <input type="text" id="apartment" name="apartment"
+                                        placeholder="Apt 101, Unit B, etc.">
+                                </div>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="zipcode">ZIP Code <span class="required">*</span></label>
+                                <div class="input-with-icon" style="max-width: 200px;">
+                                    <i class="fas fa-map-pin"></i>
+                                    <input type="text" id="zipcode" name="zipcode" placeholder="33101" required
+                                        maxlength="5" pattern="[0-9]{5}">
+                                </div>
+                                <div class="service-area-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Service Area: <strong>West Palm Beach to Homestead</strong> (South
+                                        Florida)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section: Service Details -->
+                    <div class="form-section">
+                        <div class="form-section-header">
+                            <i class="fas fa-tools"></i>
+                            <span>Service Details</span>
+                        </div>
+
+                        <!-- Appliances Selection -->
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label>Appliances to Repair <span class="required">*</span> <span class="optional">(Select
+                                    all that apply)</span></label>
+                            <div class="appliance-options">
+                                <label class="appliance-option">
+                                    <input type="checkbox" name="applianceType" value="washer">
+                                    <span class="appliance-chip"><i class="fas fa-tint"></i> Washer</span>
+                                </label>
+                                <label class="appliance-option">
+                                    <input type="checkbox" name="applianceType" value="dryer">
+                                    <span class="appliance-chip"><i class="fas fa-wind"></i> Dryer</span>
+                                </label>
+                                <label class="appliance-option">
+                                    <input type="checkbox" name="applianceType" value="refrigerator">
+                                    <span class="appliance-chip"><i class="fas fa-snowflake"></i> Refrigerator</span>
+                                </label>
+                                <label class="appliance-option">
+                                    <input type="checkbox" name="applianceType" value="stove">
+                                    <span class="appliance-chip"><i class="fas fa-fire"></i> Stove / Oven</span>
+                                </label>
+                                <label class="appliance-option">
+                                    <input type="checkbox" name="applianceType" value="dishwasher">
+                                    <span class="appliance-chip"><i class="fas fa-sink"></i> Dishwasher</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Date and Problem in Grid -->
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="date">Preferred Date <span class="optional">(Optional)</span></label>
+                                <div class="date-selection-container compact">
+                                    <div class="quick-dates" id="quickDates">
+                                        <!-- Options generated by JS -->
+                                    </div>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <input type="text" id="date" name="date" placeholder="Or pick date">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="problem">Problem Description <span
+                                        class="optional">(Optional)</span></label>
+                                <div class="input-with-icon textarea-wrapper">
+                                    <i class="fas fa-comment-alt"></i>
+                                    <textarea id="problem" name="problem" rows="2" maxlength="200"
+                                        placeholder="Briefly describe the issue..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-whatsapp btn-block">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Send via WhatsApp</span>
+                    </button>
+                    <p class="form-note text-center">
+                        <i class="fas fa-check-circle"></i>
+                        We'll confirm your appointment within 30 minutes!
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq section">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <span class="section-subtitle">Common Questions</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-grid">
+                <!-- Column 1 -->
+                <div class="faq-column">
+                    <details class="faq-item">
+                        <summary>How much is the diagnostic fee and do I have to pay if I decide not to repair?
+                        </summary>
+                        <p>Our diagnostic fee is $69.99, which applies when you schedule a service with us. This covers
+                            the technician's visit to your home and a complete diagnosis of your appliance's issue. The
+                            great news is that if you decide to proceed with the repair, we will apply this $69.99 as a
+                            credit toward your total repair cost. If you choose not to repair, you would only be
+                            responsible for the diagnostic fee—and you'll still walk away with a clear understanding of
+                            your appliance's issue.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Do you offer a warranty on your repairs?</summary>
+                        <p>Absolutely. We stand behind the quality of our workmanship. All our repairs come with a
+                            3-month warranty that covers both the replacement parts and our labor. If the same issue
+                            reoccurs within this 3-month period, we will come back and fix it at no additional cost to
+                            you. Your peace of mind is our priority.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Can I provide my own part and just pay for labor?</summary>
+                        <p>Yes, we offer a labor-only service for $180 if you already have the replacement part. We're
+                            happy to install it for you! However, please keep in mind that when you provide your own
+                            part, we cannot offer any warranty on the repair. This means that if the appliance doesn't
+                            work after installation—whether due to the part itself or other issues—the $180 labor fee
+                            still applies, as our technician will have completed the work. We always recommend letting
+                            us source the parts so we can back everything with our full warranty.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Are you available on weekends and holidays?</summary>
+                        <p>Yes, we understand that appliances can break down at the most inconvenient times. That's why
+                            we are available 7 days a week, from 8:00 AM to 9:00 PM, including Saturdays and Sundays. We
+                            do not charge extra fees for weekend appointments, so you can schedule a time that works
+                            best for your busy schedule.</p>
+                    </details>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="faq-column">
+                    <details class="faq-item">
+                        <summary>What appliance brands do you repair?</summary>
+                        <p>We have extensive experience repairing all major household appliance brands and models. This
+                            includes Samsung, LG, Whirlpool, GE, Maytag, Bosch, Frigidaire, Kenmore, KitchenAid, and
+                            many others. Whether you have a modern smart appliance or an older trusty model, our
+                            technicians have the expertise to fix it.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What areas do you service in Florida?</summary>
+                        <p>We are proud to serve a wide area in South Florida. Our service range extends from West Palm
+                            Beach all the way down to Homestead. This includes major cities like Miami, Fort Lauderdale,
+                            Boca Raton, Hollywood, Pompano Beach, and all surrounding neighborhoods. If you are in South
+                            Florida, we likely cover your area.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How long does a typical repair take?</summary>
+                        <p>Our goal is to complete your repair in a single visit whenever possible. Our trucks are
+                            stocked with common parts for frequently repaired appliances, and most standard repairs are
+                            done in 1-2 hours. However, if a special order part is needed, please note that the process
+                            typically takes 1 to 3 business days. We will order the part immediately and schedule a
+                            return visit as soon as it arrives to get your appliance running again.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What forms of payment do you accept?</summary>
+                        <p>To make the process convenient for you, we accept multiple forms of payment. You can pay
+                            using cash, Zelle, or major credit/debit cards upon completion of the service. We aim to
+                            make the payment process as smooth and hassle-free as the repair itself.</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <img src="assets/logo.png" alt="Appliances Repair Yang" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">Your trusted local expert for all appliance repair needs in Florida.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61557704355347" target="_blank"
+                            aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/appliancesservicesyang/" target="_blank"
+                            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links Column -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#book-now">Book Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+17542757642">(754) 275-7642</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>South Florida</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Hours Column -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">We're Available</h4>
+                    <div class="footer-hours-block">
+                        <p class="hours-highlight"><i class="fas fa-clock"></i> 7 Days a Week</p>
+                        <p class="hours-time">8:00 AM – 9:00 PM</p>
+                        <p class="hours-note">Call anytime, we're here to help!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Appliances Repair Yang. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Call Button (Mobile) -->
+    <a href="tel:+17542757642" class="floating-cta">
+        <i class="fas fa-phone"></i> Call Now
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
