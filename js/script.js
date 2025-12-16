@@ -28,25 +28,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
     const navClose = document.getElementById('nav-close');
+    const navOverlay = document.getElementById('nav-overlay');
     const navLinks = document.querySelectorAll('.nav-link');
 
+    // Function to open menu
+    const openMenu = () => {
+        navMenu.classList.add('show-menu');
+        if (navOverlay) navOverlay.classList.add('show-overlay');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+    };
+
+    // Function to close menu
+    const closeMenu = () => {
+        navMenu.classList.remove('show-menu');
+        if (navOverlay) navOverlay.classList.remove('show-overlay');
+        document.body.style.overflow = ''; // Restore scroll
+    };
+
     if (navToggle) {
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.add('show-menu');
-        });
+        navToggle.addEventListener('click', openMenu);
     }
 
     if (navClose) {
-        navClose.addEventListener('click', () => {
-            navMenu.classList.remove('show-menu');
-        });
+        navClose.addEventListener('click', closeMenu);
+    }
+
+    // Close menu when clicking overlay (outside menu)
+    if (navOverlay) {
+        navOverlay.addEventListener('click', closeMenu);
     }
 
     // Close menu when clicking a link
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('show-menu');
-        });
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu when clicking CTA buttons inside menu
+    const menuCTAs = document.querySelectorAll('.nav-cta-phone, .nav-cta-book');
+    menuCTAs.forEach(cta => {
+        cta.addEventListener('click', closeMenu);
     });
 
     // Sticky Header
