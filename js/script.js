@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const phone = document.getElementById('phone').value;
             const phone2 = document.getElementById('phone2').value;
             const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
             const apartment = document.getElementById('apartment').value;
             const zipcode = document.getElementById('zipcode').value;
 
@@ -196,10 +197,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 .map(cb => applianceNames[cb.value] || cb.value)
                 .join(', ');
 
-            // Format full address (including apt and zip)
+            // Format full address (including city, apt and zip)
             let fullAddress = address;
             if (apartment) fullAddress += `, ${apartment}`;
-            fullAddress += ` - ${zipcode}`;
+            fullAddress += `, ${city} - ${zipcode}`;
 
             // Format date nicely if provided
             let dateDisplay = 'Flexible';

@@ -317,7 +317,14 @@
                                 <label for="address">Service Address <span class="required">*</span></label>
                                 <div class="input-with-icon">
                                     <i class="fas fa-home"></i>
-                                    <input type="text" id="address" name="address" placeholder="123 Main St, City"
+                                    <input type="text" id="address" name="address" placeholder="123 Main St" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-city"></i>
+                                    <input type="text" id="city" name="city" placeholder="Miami, Fort Lauderdale, etc."
                                         required>
                                 </div>
                             </div>
@@ -329,13 +336,15 @@
                                         placeholder="Apt 101, Unit B, etc.">
                                 </div>
                             </div>
-                            <div class="form-group full-width">
+                            <div class="form-group">
                                 <label for="zipcode">ZIP Code <span class="required">*</span></label>
-                                <div class="input-with-icon" style="max-width: 200px;">
+                                <div class="input-with-icon">
                                     <i class="fas fa-map-pin"></i>
                                     <input type="text" id="zipcode" name="zipcode" placeholder="33101" required
                                         maxlength="5" pattern="[0-9]{5}">
                                 </div>
+                            </div>
+                            <div class="form-group full-width">
                                 <div class="service-area-note">
                                     <i class="fas fa-info-circle"></i>
                                     <span>Service Area: <strong>West Palm Beach to Homestead</strong> (South
