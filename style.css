@@ -2649,9 +2649,9 @@ img {
         font-size: 0.75rem;
     }
 
-    /* === FORMULARIO MÓVIL === */
+    /* === FORMULARIO MÓVIL COMPACTO === */
     .booking {
-        padding: 2.5rem 0;
+        padding: 1.5rem 0;
     }
 
     .booking-wrapper {
@@ -2659,136 +2659,141 @@ img {
     }
 
     .booking-header {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .booking-header .section-title {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
     .booking-header p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .booking-form {
-        padding: 1.25rem 1rem;
-        border-radius: 1rem;
+        padding: 1rem 0.75rem;
+        border-radius: 0.75rem;
     }
 
     .form-section {
-        margin-bottom: 1rem;
-        padding-bottom: 0.75rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
     }
 
     .form-section-header {
-        margin-bottom: 0.75rem;
-        padding-bottom: 0.4rem;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.25rem;
     }
 
     .form-section-header i {
-        width: 28px;
-        height: 28px;
-        font-size: 0.85rem;
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
         border-radius: 6px;
     }
 
     .form-section-header span {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .form-grid {
         grid-template-columns: 1fr;
-        gap: 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .form-group margin-bottom {
+        margin-bottom: 0;
     }
 
     .form-group label {
-        font-size: 0.8rem;
-        margin-bottom: 0.3rem;
+        font-size: 0.75rem;
+        margin-bottom: 0.2rem;
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
-        padding: 0.85rem 0.75rem;
-        font-size: 1rem;
-        border-radius: 0.6rem;
-        min-height: 48px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        border-radius: 0.5rem;
+        min-height: 40px;
     }
 
     .input-with-icon input,
     .input-with-icon select,
     .input-with-icon textarea {
-        padding-left: 2.75rem !important;
+        padding-left: 2.25rem !important;
     }
 
     .input-with-icon>i {
-        left: 0.85rem;
-        font-size: 0.9rem;
+        left: 0.75rem;
+        font-size: 0.8rem;
     }
 
     /* Chips de appliance optimizados para toque */
     .appliance-options {
-        gap: 0.5rem;
+        gap: 0.35rem;
         justify-content: flex-start;
     }
 
     .appliance-chip {
-        padding: 0.65rem 0.9rem;
-        font-size: 0.8rem;
-        min-height: 44px;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+        min-height: 36px;
         display: inline-flex;
         align-items: center;
+        gap: 0.3rem;
     }
 
     .appliance-chip i {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     /* Fechas rápidas compactas */
     .date-selection-container.compact .quick-dates,
     .quick-dates {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.4rem;
+        gap: 0.35rem;
     }
 
     .date-card {
-        min-height: 60px;
-        padding: 0.6rem 0.4rem;
-        border-radius: 0.6rem;
+        min-height: 50px;
+        padding: 0.4rem 0.2rem;
+        border-radius: 0.5rem;
     }
 
     .date-card .day {
-        font-size: 0.75rem;
-        margin-bottom: 0.15rem;
+        font-size: 0.7rem;
+        margin-bottom: 0.1rem;
     }
 
     .date-card .date {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     /* Service area note */
     .service-area-note {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
         margin-top: 0.5rem;
     }
 
-    /* WhatsApp button grande y táctil */
+    /* WhatsApp button grande y táctil pero compacto */
     .btn-whatsapp {
-        padding: 1rem 1.5rem;
-        font-size: 1.05rem;
-        min-height: 54px;
-        margin-top: 1rem;
-        border-radius: 0.75rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+        min-height: 44px;
+        margin-top: 0.75rem;
+        border-radius: 0.5rem;
     }
 
     .btn-whatsapp i {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .form-note {
-        margin-top: 0.75rem;
-        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        font-size: 0.75rem;
     }
 
     /* === FAQ COMPACTO === */
@@ -2830,83 +2835,188 @@ img {
         line-height: 1.5;
     }
 
-    /* === FOOTER LIMPIO === */
+    /* === FOOTER LIMPIO Y ORDENADO === */
     .footer {
-        padding-top: 2.5rem;
+        padding-top: 2rem;
+        padding-bottom: 8rem;
+        /* Espacio generoso para el botón flotante */
+        background-color: var(--title-color);
+        /* Asegurar fondo oscuro en móvil si no lo hereda */
+        color: #fff;
     }
 
     .footer-main {
-        grid-template-columns: 1fr;
-        gap: 1.75rem;
-        padding-bottom: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding-bottom: 2rem;
         text-align: center;
     }
 
     .footer-brand {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        order: 1;
         max-width: 100%;
+        margin-bottom: 0.5rem;
     }
 
     .footer-logo-img {
-        height: 45px;
+        height: 55px;
+        /* Un poco más grande para presencia */
         margin: 0 auto 0.75rem;
+        background: rgba(255, 255, 255, 0.95);
+        /* Fondo blanco suave para el logo si es transparente */
+        padding: 5px;
+        border-radius: 8px;
     }
 
     .footer-tagline {
         font-size: 0.9rem;
-        max-width: 280px;
+        max-width: 300px;
         margin: 0 auto 1rem;
+        color: rgba(255, 255, 255, 0.7);
+        /* Texto claro */
     }
 
     .social-links {
         justify-content: center;
-        gap: 0.6rem;
+        gap: 1rem;
     }
 
     .social-links a {
-        width: 44px;
-        height: 44px;
+        width: 48px;
+        /* Touch friendly bigger */
+        height: 48px;
+        background: rgba(255, 255, 255, 0.1);
+        /* Fondo translúcido */
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hours Section - Prominente en Fila 2 */
+    .footer-col:nth-child(4) {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        order: 2;
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-hours-block {
+        padding: 1.25rem;
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        /* Fondo oscuro sutil */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .hours-highlight {
+        color: var(--second-color);
+        /* Naranja vibrante */
+        font-weight: 700;
+        font-size: 0.85rem;
+        margin-bottom: 0.35rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .hours-time {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #fff;
+        /* Blanco */
+        margin-bottom: 0.35rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hours-note {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.6);
+        font-style: italic;
+    }
+
+    /* Navigation & Contact - Fila 3, Lado a lado */
+    .footer-col:nth-child(2) {
+        grid-column: 1;
+        grid-row: 3;
+        order: 3;
+        text-align: right;
+        /* Alineado a la derecha (centro visual) */
+        padding-right: 1rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        /* Separador sutil */
+    }
+
+    .footer-col:nth-child(3) {
+        grid-column: 2;
+        grid-row: 3;
+        order: 4;
+        text-align: left;
+        /* Alineado a la izquierda (centro visual) */
+        padding-left: 1rem;
     }
 
     .footer-heading {
         font-size: 0.9rem;
-        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--second-color);
+        /* Títulos en naranja/dorado */
+        margin-bottom: 1rem;
+        font-weight: 800;
     }
 
     .footer-nav li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.85rem;
     }
 
     .footer-nav a {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.85);
+        /* Blanco hueso */
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    .footer-nav a:hover {
+        color: #fff;
+        padding-right: 5px;
     }
 
     .footer-contact-list li {
-        justify-content: center;
-        margin-bottom: 0.6rem;
-        font-size: 0.9rem;
+        justify-content: flex-start;
+        /* Alineado al inicio del contenedor (izquierda) */
+        margin-bottom: 0.85rem;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.85);
     }
 
-    .footer-hours-block {
-        padding: 0.75rem;
-        border-radius: 0.6rem;
+    .footer-contact-list i {
+        color: var(--second-color);
+        /* Iconos en naranja */
     }
 
-    .hours-highlight {
-        font-size: 0.8rem;
-    }
-
-    .hours-time {
-        font-size: 0.9rem;
-    }
-
-    .hours-note {
-        font-size: 0.7rem;
+    /* Ajuste específico para la lista de contacto del lado derecho para que coincida con flex-start */
+    .footer-col:nth-child(2) .footer-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
     }
 
     .footer-bottom {
-        padding: 1rem 0;
-        margin-top: 1.25rem;
-        font-size: 0.8rem;
+        padding: 1.5rem 0 3rem;
+        /* Padding bottom extra */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.5);
     }
 
     /* === BOTÓN FLOTANTE PROMINENTE === */
