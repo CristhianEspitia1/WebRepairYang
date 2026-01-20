@@ -149,112 +149,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const fp = flatpickr("#date", {
         dateFormat: "Y-m-d",
         altInput: true,
-        altFormat: "F j, Y", // Display: December 13, 2025
+        altFormat: "F j, Y", // Display: January 20, 2026
         showMonths: 1,
+        minDate: "today",
+        disableMobile: true, // Force custom picker on mobile (not native)
+        locale: {
+            firstDayOfWeek: 0, // Sunday
+            weekdays: {
+                shorthand: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+                longhand: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+            },
+            months: {
+                shorthand: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                longhand: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+            }
+        },
         onChange: function (selectedDates, dateStr, instance) {
             // Remove selection from quick buttons if manual date picked
             document.querySelectorAll('.date-card').forEach(c => c.classList.remove('selected'));
         }
     });
 
-    // Booking Form Submission - WhatsApp Integration
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Collect ALL form data
-            const name = document.getElementById('fullName').value;
-            const phone = document.getElementById('phone').value;
-            const phone2 = document.getElementById('phone2').value;
-            const address = document.getElementById('address').value;
-            const city = document.getElementById('city').value;
-            const apartment = document.getElementById('apartment').value;
-            const zipcode = document.getElementById('zipcode').value;
 
-            // Get all selected appliances (checkboxes)
-            const selectedAppliances = document.querySelectorAll('input[name="applianceType"]:checked');
 
-            // Validate at least one appliance is selected
-            if (selectedAppliances.length === 0) {
-                alert('Please select at least one appliance to repair.');
-                return;
-            }
-
-            const preferredDate = document.getElementById('date').value || 'Not specified';
-            const problem = document.getElementById('problem').value || 'Not provided';
-
-            // Format the appliance types nicely
-            const applianceNames = {
-                'washer': 'Washer',
-                'dryer': 'Dryer',
-                'refrigerator': 'Refrigerator',
-                'stove': 'Stove / Oven',
-                'dishwasher': 'Dishwasher'
-            };
-
-            // Create list of selected appliances
-            const applianceList = Array.from(selectedAppliances)
-                .map(cb => applianceNames[cb.value] || cb.value)
-                .join(', ');
-
-            // Format full address (including city, apt and zip)
-            let fullAddress = address;
-            if (apartment) fullAddress += `, ${apartment}`;
-            fullAddress += `, ${city} - ${zipcode}`;
-
-            // Format date nicely if provided
-            let dateDisplay = 'Flexible';
-            if (preferredDate && preferredDate !== 'Not specified') {
-                const d = new Date(preferredDate);
-                dateDisplay = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-            }
-
-            // Create WhatsApp message in requested order
-            const message = `*New Repair Request*
-
-*Name:* ${name}
-
-*Address:* ${fullAddress}
-
-*Phone:* ${phone}${phone2 ? ` / ${phone2}` : ''}
-
-*Date:* ${dateDisplay}
-
-*Appliances:* ${applianceList}${problem && problem !== 'Not provided' ? `
-
-*Issue:* ${problem}` : ''}`;
-
-            // WhatsApp number (without + sign for URL)
-            const whatsappNumber = '17542757642';
-
-            // Encode message for URL
-            const encodedMessage = encodeURIComponent(message);
-
-            // Create WhatsApp URL
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-            // Open WhatsApp in new tab
-            window.open(whatsappURL, '_blank');
-
-            // Show confirmation to user
-            const btn = bookingForm.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = '✓ Opening WhatsApp...';
-            btn.style.backgroundColor = '#25D366'; // WhatsApp green
-
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.backgroundColor = '';
-                // Reset form
-                bookingForm.reset();
-                fp.clear();
-                document.querySelectorAll('.date-card').forEach(c => c.classList.remove('selected'));
-            }, 2000);
-        });
-    }
+    // Booking Form Submission - Cloud Function Integration
+    // BOOKING FORM LOGIC MOVED TO INDEX.HTML (DIRECT FIREBASE INTEGRATION)
+    // The event listener below has been removed to avoid conflicts.
+    // See index.html for the new <script type="module"> block.
+    console.log("Legacy booking logic disabled. Using Direct Firebase Integration (No Server).");
 
     // Dynamic Quick Dates Logic
     initQuickDates(fp);
+    initCustomTimePicker();
 });
 
 function initQuickDates(flatpickrInstance) {
@@ -332,4 +258,115 @@ function getDayName(date) {
 function getMonthDate(date) {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     return `${months[date.getMonth()]} ${date.getDate()}`;
+}
+
+function initCustomTimePicker() {
+    const trigger = document.getElementById('timeDropdownTrigger');
+    const panel = document.getElementById('timeDropdownPanel');
+    const display = document.getElementById('selectedTimeDisplay');
+    const timeInput = document.getElementById('time');
+
+    if (!trigger || !panel || !timeInput) return;
+
+    // Time slots (8 AM to 9 PM)
+    const timeSlots = [
+        { display: "08:00 AM", value: "08:00" },
+        { display: "09:00 AM", value: "09:00" },
+        { display: "10:00 AM", value: "10:00" },
+        { display: "11:00 AM", value: "11:00" },
+        { display: "12:00 PM", value: "12:00" },
+        { display: "01:00 PM", value: "13:00" },
+        { display: "02:00 PM", value: "14:00" },
+        { display: "03:00 PM", value: "15:00" },
+        { display: "04:00 PM", value: "16:00" },
+        { display: "05:00 PM", value: "17:00" },
+        { display: "06:00 PM", value: "18:00" },
+        { display: "07:00 PM", value: "19:00" },
+        { display: "08:00 PM", value: "20:00" },
+        { display: "09:00 PM", value: "21:00" }
+    ];
+
+    // Generate options
+    panel.innerHTML = '';
+    timeSlots.forEach(slot => {
+        const option = document.createElement('div');
+        option.className = 'time-dropdown-option';
+        option.textContent = slot.display;
+        option.dataset.value = slot.value;
+
+        option.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Update display
+            display.textContent = slot.display;
+            trigger.classList.add('has-value');
+            // Update hidden input
+            timeInput.value = slot.value;
+            // Close panel
+            panel.classList.remove('open');
+            trigger.classList.remove('open');
+            trigger.closest('.time-dropdown-wrapper').classList.remove('dropdown-open');
+            // Mark selected
+            panel.querySelectorAll('.time-dropdown-option').forEach(o => o.classList.remove('selected'));
+            option.classList.add('selected');
+        });
+
+        panel.appendChild(option);
+    });
+
+    // Create overlay for mobile
+    let overlay = document.getElementById('timePickerOverlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'timePickerOverlay';
+        overlay.className = 'time-picker-overlay';
+        document.body.appendChild(overlay);
+    }
+
+    // Toggle dropdown
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isOpen = !panel.classList.contains('open');
+
+        if (isOpen) {
+            // Move panel to overlay and show
+            overlay.appendChild(panel);
+            overlay.classList.add('active');
+            panel.classList.add('open');
+            trigger.classList.add('open');
+        } else {
+            closeTimePicker();
+        }
+    });
+
+    // Close function
+    function closeTimePicker() {
+        panel.classList.remove('open');
+        trigger.classList.remove('open');
+        overlay.classList.remove('active');
+        // Move panel back to wrapper
+        trigger.closest('.time-dropdown-wrapper').appendChild(panel);
+    }
+
+    // Close when clicking overlay background
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            closeTimePicker();
+        }
+    });
+
+    // Close when clicking outside (desktop)
+    document.addEventListener('click', (e) => {
+        if (!trigger.contains(e.target) && !panel.contains(e.target) && !overlay.contains(e.target)) {
+            closeTimePicker();
+        }
+    });
+
+    // Update option click handlers to use closeTimePicker
+    panel.querySelectorAll('.time-dropdown-option').forEach(option => {
+        option.addEventListener('click', () => {
+            closeTimePicker();
+        });
+    });
 }

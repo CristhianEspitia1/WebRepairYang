@@ -160,8 +160,8 @@
 /* Scroll Reveal Classes */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
 }
 
 .reveal.active {
@@ -194,7 +194,7 @@
 .reveal-scale {
     opacity: 0;
     transform: scale(0.9);
-    transition: all 0.6s ease-out;
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
 }
 
 .reveal-scale.active {
@@ -3269,5 +3269,344 @@ img {
     .date-card:active {
         transform: scale(0.97);
         opacity: 0.9;
+    }
+}
+
+/* ==================== CUSTOM TIME PICKER DROPDOWN ==================== */
+.time-dropdown-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.time-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: #fff;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color-light);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    gap: 0.75rem;
+}
+
+.time-dropdown-trigger:hover {
+    border-color: var(--first-color);
+    background: var(--first-color-light);
+}
+
+.time-dropdown-trigger.open {
+    border-color: var(--first-color);
+    box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+}
+
+.time-dropdown-trigger.has-value {
+    color: var(--title-color);
+}
+
+.time-dropdown-trigger .fa-clock {
+    color: var(--first-color);
+    font-size: 1.1rem;
+}
+
+.time-dropdown-trigger .dropdown-arrow {
+    color: var(--text-color-light);
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.time-dropdown-trigger.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.time-dropdown-trigger #selectedTimeDisplay {
+    flex: 1;
+    text-align: left;
+}
+
+/* Dropdown Panel */
+.time-dropdown-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9999;
+}
+
+.time-dropdown-panel.open {
+    max-height: 70vh;
+    overflow-y: auto;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Fullscreen Overlay for Time Picker */
+.time-picker-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.time-picker-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Panel inside overlay */
+.time-picker-overlay .time-dropdown-panel {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 90%;
+    max-width: 320px;
+    max-height: 70vh;
+    overflow-y: auto;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.time-picker-overlay.active .time-dropdown-panel {
+    transform: scale(1);
+}
+
+/* Time Options */
+.time-dropdown-option {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--title-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.time-dropdown-option:last-child {
+    border-bottom: none;
+}
+
+.time-dropdown-option:hover {
+    background: var(--first-color-light);
+    color: var(--first-color);
+}
+
+.time-dropdown-option.selected {
+    background: var(--first-color);
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Scrollbar styling for panel */
+.time-dropdown-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.time-dropdown-panel::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.time-dropdown-panel::-webkit-scrollbar-thumb {
+    background: var(--first-color);
+    border-radius: 3px;
+}
+
+/* ==================== CUSTOM FLATPICKR CALENDAR ==================== */
+.flatpickr-calendar {
+    background: #fff !important;
+    border: 2px solid var(--border-color) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+    font-family: var(--body-font) !important;
+    padding: 12px !important;
+    width: 320px !important;
+}
+
+.flatpickr-calendar.arrowTop::before,
+.flatpickr-calendar.arrowTop::after,
+.flatpickr-calendar.arrowBottom::before,
+.flatpickr-calendar.arrowBottom::after {
+    display: none !important;
+}
+
+/* Month Navigation */
+.flatpickr-months {
+    margin-bottom: 10px;
+}
+
+.flatpickr-months .flatpickr-month {
+    background: transparent !important;
+    height: 40px !important;
+}
+
+.flatpickr-current-month {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: var(--title-color) !important;
+    padding: 0 !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+    background: transparent !important;
+    font-weight: 700 !important;
+    color: var(--title-color) !important;
+}
+
+.flatpickr-current-month input.cur-year {
+    font-weight: 700 !important;
+    color: var(--title-color) !important;
+}
+
+/* Navigation Arrows */
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+    fill: var(--first-color) !important;
+    color: var(--first-color) !important;
+    padding: 8px !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+}
+
+.flatpickr-months .flatpickr-prev-month:hover,
+.flatpickr-months .flatpickr-next-month:hover {
+    background: var(--first-color-light) !important;
+}
+
+.flatpickr-months .flatpickr-prev-month svg,
+.flatpickr-months .flatpickr-next-month svg {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* Weekday Headers */
+.flatpickr-weekdays {
+    background: transparent !important;
+    margin-bottom: 5px;
+}
+
+.flatpickr-weekday {
+    background: transparent !important;
+    color: var(--text-color-light) !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+}
+
+/* Days Container */
+.flatpickr-days {
+    width: 100% !important;
+}
+
+.dayContainer {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Individual Days */
+.flatpickr-day {
+    color: var(--title-color) !important;
+    font-weight: 500 !important;
+    border-radius: 10px !important;
+    height: 38px !important;
+    line-height: 38px !important;
+    margin: 2px !important;
+    max-width: 38px !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+}
+
+.flatpickr-day:hover {
+    background: var(--first-color-light) !important;
+    border: none !important;
+}
+
+/* Today */
+.flatpickr-day.today {
+    border: 2px solid var(--second-color) !important;
+    background: transparent !important;
+}
+
+.flatpickr-day.today:hover {
+    background: var(--first-color-light) !important;
+}
+
+/* Selected Day */
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover {
+    background: var(--first-color) !important;
+    border-color: var(--first-color) !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 12px rgba(15, 76, 129, 0.3) !important;
+}
+
+/* Disabled/Other Month Days */
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+    color: var(--text-color-light) !important;
+    opacity: 0.4 !important;
+}
+
+.flatpickr-day.flatpickr-disabled:hover {
+    background: transparent !important;
+}
+
+/* Mobile Optimization */
+@media screen and (max-width: 400px) {
+    .flatpickr-calendar {
+        width: 290px !important;
+        padding: 10px !important;
+    }
+
+    .flatpickr-day {
+        height: 34px !important;
+        line-height: 34px !important;
+        max-width: 34px !important;
+    }
+}
+
+/* Animation when opening */
+.flatpickr-calendar.open {
+    animation: calendarFadeIn 0.25s ease-out;
+}
+
+@keyframes calendarFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
