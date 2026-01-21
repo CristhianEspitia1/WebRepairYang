@@ -25,6 +25,9 @@
 
     <!-- Flatpickr JS -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeeXlEsAAAAAB0JAUinHg2LZQAe94mE4dc1gDc9"></script>
 </head>
 
 <body>
@@ -638,6 +641,14 @@
         async function enviarAgenda(event) {
             event.preventDefault();
 
+            // 🛡️ reCAPTCHA v3 - Obtener token
+            let recaptchaToken = '';
+            try {
+                recaptchaToken = await grecaptcha.execute('6LeeXlEsAAAAAB0JAUinHg2LZQAe94mE4dc1gDc9', { action: 'submit_lead' });
+            } catch (e) {
+                console.warn('reCAPTCHA failed, continuing without it:', e);
+            }
+
             // 1. CAPTURA DE APPLIANCES (EQUIPOS) - Lógica para Checkboxes
             // Busca todos los inputs "checked" dentro del formulario
             const checkedBoxes = event.target.querySelectorAll('input[type="checkbox"]:checked');
@@ -713,7 +724,8 @@
                     createdAt: serverTimestamp(),
                     buyerId: null,
                     source: 'website',
-                    leadNumber: leadNumber
+                    leadNumber: leadNumber,
+                    recaptchaToken: recaptchaToken || null
                 });
 
                 // Payload Privado
