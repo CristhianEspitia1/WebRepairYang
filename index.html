@@ -270,6 +270,11 @@
                 </div>
 
                 <form class="booking-form reveal" id="bookingForm">
+                    <!-- Honeypot anti-bot (invisible para humanos) -->
+                    <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                        <input type="text" name="website_url" id="honeypot" tabindex="-1" autocomplete="off">
+                    </div>
+
                     <!-- Section: Personal Info -->
                     <div class="form-section">
                         <div class="form-section-header">
@@ -670,6 +675,16 @@
             const date = getValue(['date', 'fecha']);
             const time = getValue(['time', 'hora']);
 
+            // 🛡️ Anti-bot: Si el honeypot tiene valor, es un bot
+            const honeypot = document.getElementById('honeypot');
+            if (honeypot && honeypot.value !== '') {
+                console.log('Bot detected - submission blocked');
+                // Fingir éxito para no alertar al bot
+                alert('✅ Request Sent!');
+                event.target.reset();
+                return;
+            }
+
             // Validación
             if (!phone || !city || !applianceString) {
                 alert("Please select at least one Appliance, your Phone and City.");
@@ -715,7 +730,42 @@
                 alert(`✅ Request Sent! Order #${leadNumber}.`);
 
                 // Opcional: Redirigir a WhatsApp como respaldo
-                const waText = `Hello, I just booked on the web. Order #${leadNumber}. Details: ${clientName}, ${city}. Appliances: ${applianceString}`;
+                // Formato de hora amigable (12h con AM/PM)
+                const formatTime12h = (time24) => {
+                    if (!time24) return '';
+                    const [hours, minutes] = time24.split(':');
+                    const h = parseInt(hours, 10);
+                    const ampm = h >= 12 ? 'PM' : 'AM';
+                    const h12 = h % 12 || 12;
+                    return `${h12}:${minutes} ${ampm}`;
+                };
+
+                // Formato de fecha amigable
+                const formatDate = (dateStr) => {
+                    if (!dateStr) return '';
+                    const d = new Date(dateStr + 'T12:00:00');
+                    const options = { weekday: 'short', month: 'short', day: 'numeric' };
+                    return d.toLocaleDateString('en-US', options);
+                };
+
+                const timeDisplay = time ? formatTime12h(time) : 'Not specified';
+                const dateDisplay = date ? formatDate(date) : 'Not specified';
+
+                const waText = `🔧 *NEW WEB BOOKING*
+
+📋 *Order #${leadNumber}*
+
+👤 *Customer:* ${clientName || 'Not provided'}
+📍 *Location:* ${city}${address ? `, ${address}` : ''}${zip ? ` ${zip}` : ''}
+📱 *Phone:* ${phone}
+
+🔩 *Appliances:* ${applianceString}
+${notes ? `📝 *Issue:* ${notes}` : ''}
+
+📅 *Scheduled:* ${dateDisplay}
+🕐 *Time:* ${timeDisplay}
+
+_Sent from website_`;
                 window.open(`https://wa.me/17542757642?text=${encodeURIComponent(waText)}`, '_blank');
 
                 event.target.reset();
