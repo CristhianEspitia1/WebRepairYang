@@ -1193,7 +1193,7 @@ img {
     color: var(--title-color);
 }
 
-/* Input with Icon */
+/* Input with Icon - Improved Icons */
 .input-with-icon {
     position: relative;
     display: flex;
@@ -1203,8 +1203,10 @@ img {
 .input-with-icon>i {
     position: absolute;
     left: 1rem;
-    color: var(--text-color-light);
-    font-size: 1rem;
+    color: var(--first-color);
+    /* Azul en lugar de gris */
+    font-size: 1.1rem;
+    /* Un poco más grande */
     z-index: 1;
     transition: var(--transition-smooth);
 }
@@ -1217,7 +1219,9 @@ img {
 }
 
 .input-with-icon:focus-within>i {
-    color: var(--first-color);
+    color: var(--second-color);
+    /* Dorado al hacer focus */
+    transform: scale(1.1);
 }
 
 /* Select wrapper arrow */
@@ -1247,7 +1251,8 @@ img {
 
 /* Required and Optional indicators */
 .required {
-    color: #e74c3c;
+    color: var(--second-color);
+    /* Dorado para asteriscos */
     font-weight: 700;
 }
 
@@ -1287,14 +1292,36 @@ img {
 }
 
 .appliance-chip i {
-    font-size: 0.9rem;
-    color: var(--text-color-light);
+    font-size: 1rem;
+    color: var(--first-color);
+    /* Iconos azules */
     transition: var(--transition-smooth);
 }
 
 .appliance-option:hover .appliance-chip {
     border-color: var(--first-color);
     background: var(--first-color-light);
+}
+
+.appliance-option input[type="checkbox"]:checked+.appliance-chip {
+    background: var(--first-color);
+    border-color: var(--first-color);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(15, 76, 129, 0.3);
+}
+
+.appliance-option input[type="checkbox"]:checked+.appliance-chip i {
+    color: #fff;
+    /* Blanco al seleccionar */
+}
+
+/* Form Footer Message */
+.form-note i {
+    color: #2ecc71;
+    /* Keep success green as requested but polish it? User asked for clearer msg, keeping standard green for "success" feel is usually best, but can be var(--second-color) if desired. Let's stick to a nice green or gold. Let's use Gold to match brand. */
+    color: var(--second-color);
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
 }
 
 .appliance-option input[type="checkbox"]:checked+.appliance-chip {
