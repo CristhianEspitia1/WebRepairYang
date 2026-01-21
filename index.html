@@ -708,8 +708,6 @@
 
             try {
                 const leadId = "web-" + Date.now();
-                // Generar número aleatorio para visualizar en App
-                const leadNumber = Math.floor(1000 + Math.random() * 9000);
 
                 // Payload Público
                 await setDoc(doc(db, "leads", leadId), {
@@ -724,7 +722,6 @@
                     createdAt: serverTimestamp(),
                     buyerId: null,
                     source: 'website',
-                    leadNumber: leadNumber,
                     recaptchaToken: recaptchaToken || null
                 });
 
@@ -739,7 +736,7 @@
                     fullAddress: address + ", " + city
                 });
 
-                alert(`✅ Request Sent! Order #${leadNumber}.`);
+                alert(`✅ Request Sent! We will contact you shortly.`);
 
                 // Opcional: Redirigir a WhatsApp como respaldo
                 // Formato de hora amigable (12h con AM/PM)
@@ -764,8 +761,6 @@
                 const dateDisplay = date ? formatDate(date) : 'Not specified';
 
                 const waText = `🔧 *NEW WEB BOOKING*
-
-📋 *Order #${leadNumber}*
 
 👤 *Customer:* ${clientName || 'Not provided'}
 📍 *Location:* ${city}${address ? `, ${address}` : ''}${zip ? ` ${zip}` : ''}
