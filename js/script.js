@@ -4,12 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const video2 = document.getElementById('heroVideo2');
 
     if (video1 && video2) {
+        // Helper to safely play video
+        const safePlay = (video) => {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Auto-play was prevented
+                    console.log('Video autoplay prevented:', error);
+                });
+            }
+        };
+
         // When video1 ends, switch to video2
         video1.addEventListener('ended', () => {
             video1.classList.remove('active');
             video2.classList.add('active');
             video2.currentTime = 0;
-            video2.play();
+            safePlay(video2);
         });
 
         // When video2 ends, switch back to video1
@@ -17,11 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
             video2.classList.remove('active');
             video1.classList.add('active');
             video1.currentTime = 0;
-            video1.play();
+            safePlay(video1);
         });
 
         // Start playing video1
-        video1.play().catch(e => console.log('Autoplay prevented:', e));
+        safePlay(video1);
     }
 
     // Mobile Menu Toggle
